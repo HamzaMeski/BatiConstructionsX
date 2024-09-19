@@ -22,7 +22,7 @@
 - Add and manage components (materials, labor).
 - Associate an estimate with a project to determine costs before work begins.
 - Project attributes:
-    - **name**: Project name.
+    - **name**: BatiConstructions.
     - **profitMargin**: Profit margin applied to the total cost.
     - **totalCost**: Total calculated project cost.
     - **status**: Project status (In Progress, Completed, Canceled).
@@ -69,4 +69,4 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/bati-cuisine.git
+   git clone https://github.com/HamzaMeski/BatiConstructionsX.git
