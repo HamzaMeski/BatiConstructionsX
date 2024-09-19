@@ -2,7 +2,7 @@
 
 ### Application for Estimating Kitchen Construction Costs
 
-**Bati-Cuisine** is a Java application designed for professionals in kitchen construction and renovation. The app calculates the total cost of kitchen projects, factoring in materials and labor costs. It aims to provide a powerful and user-friendly tool for accurate cost estimation and effective project management.
+**Bati-Constructions** is a Java application designed for professionals in kitchen construction and renovation. The app calculates the total cost of kitchen projects, factoring in materials and labor costs. It aims to provide a powerful and user-friendly tool for accurate cost estimation and effective project management.
 
 ---
 
@@ -22,7 +22,7 @@
 - Add and manage components (materials, labor).
 - Associate an estimate with a project to determine costs before work begins.
 - Project attributes:
-    - **name**: BatiConstructions.
+    - **name**: Project name.
     - **profitMargin**: Profit margin applied to the total cost.
     - **totalCost**: Total calculated project cost.
     - **status**: Project status (In Progress, Completed, Canceled).
