@@ -7,16 +7,9 @@ public class DbConfig {
     private static final String USER = "postgres";
     private static final String PASSWORD = "password";
 
-    private static Connection connection;
-
     private static final DbConfig instance = new DbConfig();
 
     private DbConfig() {
-        try {
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     public static synchronized DbConfig getInstance() {
@@ -24,6 +17,6 @@ public class DbConfig {
     }
 
     public Connection getConnection() throws SQLException {
-        return connection;
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 }
