@@ -1,5 +1,6 @@
 import lib.ScanInput;
 import UI.client.ClientMenu;
+import UI.project.ProjectMenu;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,13 +22,13 @@ public class Main {
 
             switch(option) {
                 case 1:
-                    System.out.println("1");
+                    ProjectMenu.displayMenu();
                     break;
                 case 2:
-                    System.out.println(2);
+
                     break;
                 case 3:
-                    System.out.println(3);
+
                     break;
                 case 4:
                     ClientMenu.addClient();

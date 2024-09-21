@@ -27,9 +27,10 @@ public class DbSeeder {
                     "client_id INTEGER NOT NULL, " +
                     "FOREIGN KEY (client_id) REFERENCES clients(id), " +
                     "name VARCHAR(255) NOT NULL, " +
-                    "profitMargin DOUBLE PRECISION NOT NULL, " +
-                    "totalCost DOUBLE PRECISION NOT NULL, " +
-                    "status VARCHAR(50) CHECK (status IN ('IN_PROGRESS', 'COMPLETED', 'CANCELED'))" +
+                    "profitMargin DOUBLE PRECISION, " +
+                    "totalCost DOUBLE PRECISION, " +
+                    "status VARCHAR(50) CHECK (status IN ('PENDING', 'IN_PROGRESS', 'COMPLETED', 'CANCELED')), " +
+                    "surface DOUBLE PRECISION" +
                     ")";
 
             String createQuotesTable = "CREATE TABLE IF NOT EXISTS quotes (" +
