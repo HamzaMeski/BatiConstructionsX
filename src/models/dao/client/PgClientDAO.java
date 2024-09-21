@@ -12,6 +12,7 @@ public class PgClientDAO extends ClientDAO {
     public PgClientDAO() {
     }
 
+
     @Override
     public void addClient(Client client) {
         String sql = "INSERT INTO clients (name, address, phone, isProfessional) VALUES (?, ?, ?, ?)";
