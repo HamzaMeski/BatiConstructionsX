@@ -9,11 +9,11 @@ public class Main {
             System.out.println("╔════════════════════════════════════════╗");
             System.out.println("║               MENU PRINCIPAL           ║");
             System.out.println("╠════════════════════════════════════════╣");
-            System.out.println("║    [1] |- Créer un nouveau projet      ║");
-            System.out.println("║    [2] |- Afficher projets existants   ║");
-            System.out.println("║    [3] |- Calculer le coût d'un projet ║");
-            System.out.println("║    [4] |- Ajouter des clients          ║");
-            System.out.println("║    [5] |- Quitter le programme         ║");
+            System.out.println("║    [1] ❖ Créer un nouveau projet       ║");
+            System.out.println("║    [2] ❖ Afficher projets existants    ║");
+            System.out.println("║    [3] ❖ Calculer le coût d'un projet  ║");
+            System.out.println("║    [4] ❖ Ajouter des clients           ║");
+            System.out.println("║    [5] ❖ Quitter le programme          ║");
             System.out.println("╚════════════════════════════════════════╝");
             System.out.print("        >> CHOISIR UNE OPTION: ");
 
