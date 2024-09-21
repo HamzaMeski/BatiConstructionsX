@@ -7,11 +7,7 @@ import java.util.List;
 import models.entities.Client;
 
 public class PgClientDAO extends ClientDAO {
-    private DbConfig dbConfig = DbConfig.getInstance();
-
-    public PgClientDAO() {
-    }
-
+    private final DbConfig dbConfig = DbConfig.getInstance();
 
     @Override
     public int addClient(Client client) {

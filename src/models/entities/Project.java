@@ -10,8 +10,9 @@ public class Project {
     private Double totalCost;
     private ProjectStatus status;
     private Double surface;
+    private Double vatRate;
 
-    public Project(int id, int clientId, String name, Double profitMargin, Double totalCost, ProjectStatus status, Double surface) {
+    public Project(int id, int clientId, String name, Double profitMargin, Double totalCost, ProjectStatus status, Double surface, Double vatRate) {
         this.id = id;
         this.clientId = clientId;
         this.name = name;
@@ -19,6 +20,7 @@ public class Project {
         this.totalCost = totalCost;
         this.status = status;
         this.surface = surface;
+        this.vatRate = vatRate;
     }
 
     public int getId() {
@@ -75,5 +77,13 @@ public class Project {
 
     public void setSurface(Double surface) {
         this.surface = surface;
+    }
+
+    public Double getVatRate() {
+        return vatRate;
+    }
+
+    public void setVatRate(Double vatRate) {
+        this.vatRate = vatRate;
     }
 }

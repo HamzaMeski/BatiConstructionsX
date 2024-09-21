@@ -30,7 +30,8 @@ public class DbSeeder {
                     "profitMargin DOUBLE PRECISION, " +
                     "totalCost DOUBLE PRECISION, " +
                     "status VARCHAR(50) CHECK (status IN ('PENDING', 'IN_PROGRESS', 'COMPLETED', 'CANCELED')), " +
-                    "surface DOUBLE PRECISION" +
+                    "surface DOUBLE PRECISION, " +
+                    "vatRate DOUBLE PRECISION" +
                     ")";
 
             String createQuotesTable = "CREATE TABLE IF NOT EXISTS quotes (" +
@@ -49,8 +50,7 @@ public class DbSeeder {
                     "FOREIGN KEY (project_id) REFERENCES projects(id), " +
                     "name VARCHAR(255) NOT NULL, " +
                     "quantity DOUBLE PRECISION NOT NULL, " +
-                    "componentType VARCHAR(100) NOT NULL, " +
-                    "vatRate DOUBLE PRECISION NOT NULL" +
+                    "componentType VARCHAR(100) NOT NULL" +
                     ")";
 
             String createMaterialsTable = "CREATE TABLE IF NOT EXISTS materials (" +

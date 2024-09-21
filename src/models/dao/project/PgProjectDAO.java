@@ -12,7 +12,7 @@ public class PgProjectDAO extends ProjectDAO {
     private final DbConfig dbConfig = DbConfig.getInstance();
 
     public void addProject(Project project) {
-        String sql = "INSERT INTO projects (client_id, name, profitMargin, totalCost, status, surface) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO projects (client_id, name, profitMargin, totalCost, status, surface, vatRate) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = dbConfig.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, project.getClientId());
@@ -21,6 +21,7 @@ public class PgProjectDAO extends ProjectDAO {
             statement.setObject(4, project.getTotalCost());
             statement.setString(5, project.getStatus().name());
             statement.setObject(6, project.getSurface());
+            statement.setObject(7, project.getVatRate());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -41,7 +42,8 @@ public class PgProjectDAO extends ProjectDAO {
                 Double totalCost = resultSet.getDouble("totalCost");
                 ProjectStatus status = ProjectStatus.valueOf(resultSet.getString("status"));
                 Double surface = resultSet.getDouble("surface");
-                projects.add(new Project(id, clientId, name, profitMargin, totalCost, status, surface));
+                Double vatRate = resultSet.getDouble("vatRate");
+                projects.add(new Project(id, clientId, name, profitMargin, totalCost, status, surface, vatRate));
             }
         } catch (SQLException e) {
             e.printStackTrace();

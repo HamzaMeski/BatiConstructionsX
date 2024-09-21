@@ -65,8 +65,7 @@ public class ProjectMenu {
         Double kitchenSurface = ScanInput.scanner.nextDouble();
         ScanInput.scanner.nextLine();
 
-        Project project = new Project(0, clientId, projectName, null, null, ProjectStatus.PENDING, kitchenSurface);
+        Project project = new Project(0, clientId, projectName, null, null, ProjectStatus.PENDING, kitchenSurface, null);
         projectService.addProject(project);
-        System.out.println("Project added successfully!");
     }
 }
