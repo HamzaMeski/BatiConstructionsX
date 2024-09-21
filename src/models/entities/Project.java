@@ -6,17 +6,19 @@ public class Project {
     private int id;
     private int clientId;
     private String name;
-    private double profitMargin;
-    private double totalCost;
+    private Double profitMargin;
+    private Double totalCost;
     private ProjectStatus status;
+    private Double surface;
 
-    public Project(int id, int clientId, String name, double profitMargin, double totalCost, ProjectStatus status) {
+    public Project(int id, int clientId, String name, Double profitMargin, Double totalCost, ProjectStatus status, Double surface) {
         this.id = id;
         this.clientId = clientId;
         this.name = name;
         this.profitMargin = profitMargin;
         this.totalCost = totalCost;
         this.status = status;
+        this.surface = surface;
     }
 
     public int getId() {
@@ -43,19 +45,19 @@ public class Project {
         this.name = name;
     }
 
-    public double getProfitMargin() {
+    public Double getProfitMargin() {
         return profitMargin;
     }
 
-    public void setProfitMargin(double profitMargin) {
+    public void setProfitMargin(Double profitMargin) {
         this.profitMargin = profitMargin;
     }
 
-    public double getTotalCost() {
+    public Double getTotalCost() {
         return totalCost;
     }
 
-    public void setTotalCost(double totalCost) {
+    public void setTotalCost(Double totalCost) {
         this.totalCost = totalCost;
     }
 
@@ -65,5 +67,13 @@ public class Project {
 
     public void setStatus(ProjectStatus status) {
         this.status = status;
+    }
+
+    public Double getSurface() {
+        return surface;
+    }
+
+    public void setSurface(Double surface) {
+        this.surface = surface;
     }
 }

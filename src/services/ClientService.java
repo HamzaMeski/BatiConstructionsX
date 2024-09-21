@@ -16,8 +16,8 @@ public class ClientService {
         this.display = display;
     }
 
-    public void addClient(Client client) {
-        model.addClient(client);
+    public int addClient(Client client) {
+        return model.addClient(client);
     }
 
     public List<Client> searchClients(String name) {

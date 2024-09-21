@@ -14,8 +14,8 @@ public class PgClientDAO extends ClientDAO {
 
 
     @Override
-    public void addClient(Client client) {
-        String sql = "INSERT INTO clients (name, address, phone, isProfessional) VALUES (?, ?, ?, ?)";
+    public int addClient(Client client) {
+        String sql = "INSERT INTO clients (name, address, phone, isProfessional) VALUES (?, ?, ?, ?) RETURNING id";
         try (Connection connection = dbConfig.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -23,11 +23,15 @@ public class PgClientDAO extends ClientDAO {
             statement.setString(2, client.getAddress());
             statement.setString(3, client.getPhone());
             statement.setBoolean(4, client.isProfessional());
-            statement.executeUpdate();
 
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return 0;
     }
 
     @Override
