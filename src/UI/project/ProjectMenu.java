@@ -9,6 +9,7 @@ import services.ProjectService;
 import models.entities.Project;
 import models.enums.ProjectStatus;
 import UI.material.MaterialMenu;
+import UI.labor.LaborMenu;
 
 public class ProjectMenu {
     static private PgProjectDAO model = new PgProjectDAO();
@@ -67,5 +68,7 @@ public class ProjectMenu {
         int projectId = projectService.addProject(project);
 
         MaterialMenu.addMaterial(projectId);
+        LaborMenu.addLabor(projectId);
+
     }
 }
