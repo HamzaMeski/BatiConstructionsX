@@ -8,8 +8,8 @@ import models.entities.Project;
 import models.dao.cost.PgCostDAO;
 
 public class CostMenu {
-    private static PgCostDAO model;
-    private static CostDisplay display;
+    private static PgCostDAO model = new PgCostDAO();
+    private static CostDisplay display = new CostDisplay();
 
     private static CostService costService = new CostService(model, display);
 
