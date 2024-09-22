@@ -13,8 +13,8 @@ public class ProjectService {
         this.display = display;
     }
 
-    public void addProject(Project project) {
-         model.addProject(project);
+    public int addProject(Project project) {
+        return model.addProject(project);
     }
 
     public void displayAllProjects() {

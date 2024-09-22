@@ -11,10 +11,11 @@ import java.util.List;
 public class PgProjectDAO extends ProjectDAO {
     private final DbConfig dbConfig = DbConfig.getInstance();
 
-    public void addProject(Project project) {
+    public int addProject(Project project) {
         String sql = "INSERT INTO projects (client_id, name, profitMargin, totalCost, status, surface, vatRate) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        int projectId = -1;
         try (Connection connection = dbConfig.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             statement.setInt(1, project.getClientId());
             statement.setString(2, project.getName());
             statement.setObject(3, project.getProfitMargin());
@@ -23,9 +24,15 @@ public class PgProjectDAO extends ProjectDAO {
             statement.setObject(6, project.getSurface());
             statement.setObject(7, project.getVatRate());
             statement.executeUpdate();
+
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                projectId = generatedKeys.getInt(1);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return projectId;
     }
 
     public List<Project> listAllProjects() {
