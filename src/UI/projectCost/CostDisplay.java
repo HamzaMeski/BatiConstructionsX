@@ -36,7 +36,6 @@ public class CostDisplay {
             Double transportCost = (Double) material.get("transportCost");
             Double qualityCoefficient = (Double) material.get("qualityCoefficient");
 
-            // Calculate the material cost correctly:
             // Cost = (quantity * unitCost * qualityCoefficient) + transportCost
             Double individualMaterialTotalCost = (quantity * unitCost * qualityCoefficient) + transportCost;
             System.out.println("-" + name + ": " + String.format("%.2f", individualMaterialTotalCost) + "€ (quantité: " + quantity + " m², coût unitaire : " + unitCost + "€/m², qualité: " + qualityCoefficient + ", transport: " + transportCost + "€)");
@@ -59,7 +58,6 @@ public class CostDisplay {
             Double workHours = (Double) labor.get("workHours");
             Double workerProductivity = (Double) labor.get("workerProductivity");
 
-            // Calculate the labor cost correctly:
             // Cost = quantity * (hoursWorked * hourlyRate * productivity)
             Double individualLaborTotalCost = quantity * (workHours * hourlyRate * workerProductivity);
             System.out.println("-" + name + ": " + String.format("%.2f", individualLaborTotalCost) + "€ (le nombre de main d'œuvres: " + quantity + " , taux horaire : " + hourlyRate + "€/h, productivité : " + workerProductivity + ", heures travaillées : " + workHours + "h)");
