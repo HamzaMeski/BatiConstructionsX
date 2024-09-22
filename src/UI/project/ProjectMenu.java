@@ -2,6 +2,7 @@ package UI.project;
 
 import lib.ScanInput;
 import lib.BC;
+import lib.YesNo;
 import UI.client.ClientMenu;
 import models.dao.project.PgProjectDAO;
 import services.ProjectService;
@@ -48,12 +49,7 @@ public class ProjectMenu {
     }
 
     public static boolean continueProcess() {
-        String choise;
-        do {
-            System.out.print("Souhaitez-vous continuer avec ce client ? (y/n) : ");
-            choise = ScanInput.scanner.nextLine().toLowerCase();
-        }while(!choise.equals("y") && !choise.equals("n"));
-
+        String choise = YesNo.displayAlert("Souhaitez-vous continuer avec ce client ?");
         if(choise.equals("y")) return true;
         else return false;
     }
