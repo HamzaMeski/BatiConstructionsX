@@ -4,17 +4,25 @@ import lib.ScanInput;
 import lib.BC;
 import lib.YesNo;
 import UI.client.ClientMenu;
+import models.dao.cost.PgCostDAO;
 import models.dao.project.PgProjectDAO;
 import services.ProjectService;
 import models.entities.Project;
 import models.enums.ProjectStatus;
 import UI.material.MaterialMenu;
 import UI.labor.LaborMenu;
+import UI.projectCost.CostMenu;
+import UI.projectCost.CostDisplay;
+import services.CostService;
 
 public class ProjectMenu {
     static private PgProjectDAO model = new PgProjectDAO();
     static private ProjectDisplay display = new ProjectDisplay();
     static ProjectService projectService = new ProjectService(model, display);
+
+    static private PgCostDAO costModel = new PgCostDAO();
+    static private CostDisplay costDisplay = new CostDisplay();
+    static CostService costService = new CostService(costModel, costDisplay);
 
     public static void displayMenu() {
         int option;
@@ -57,18 +65,35 @@ public class ProjectMenu {
 
     public static void addProject(int clientId) {
         System.out.println("");
-        System.out.println("--- Création d'un Nouveau Projet ---");
+        if(clientId == 0) System.out.println("--- Infos à propos de Projet ---");
+        else System.out.println("--- Création d'un Nouveau Projet ---");
         System.out.print("    Entrez le nom du projet : ");
         String projectName = ScanInput.scanner.nextLine();
-        System.out.print("\n    Entrez la surface de la cuisine (en m²) : ");
-        Double kitchenSurface = ScanInput.scanner.nextDouble();
+        System.out.print("\n    Entrez la surface de de l'espace (en m²) : ");
+        Double surface = ScanInput.scanner.nextDouble();
         BC.clean();
 
-        Project project = new Project(0, clientId, projectName, null, null, ProjectStatus.PENDING, kitchenSurface, null);
+        Project project = new Project(0, clientId, projectName, null, null, ProjectStatus.PENDING, surface, null);
         int projectId = projectService.addProject(project);
 
+        /*
+        Adding Materials to the project
+         */
         MaterialMenu.addMaterial(projectId);
+
+        /*
+        Adding Labors to the project
+         */
         LaborMenu.addLabor(projectId);
 
+        /*
+        Applaying VTA and Profit to the project
+         */
+        CostMenu.APPLY_VTA_AND_PROFIT(projectId);
+
+        /*
+        Project cost displaying
+         */
+        costService.DISPLAY_PROJECT_COST(projectId);
     }
 }
