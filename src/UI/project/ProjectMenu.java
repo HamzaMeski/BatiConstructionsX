@@ -1,11 +1,13 @@
 package UI.project;
 
 import lib.ScanInput;
+import lib.BC;
 import UI.client.ClientMenu;
 import models.dao.project.PgProjectDAO;
 import services.ProjectService;
 import models.entities.Project;
 import models.enums.ProjectStatus;
+import UI.material.MaterialMenu;
 
 public class ProjectMenu {
     static private PgProjectDAO model = new PgProjectDAO();
@@ -63,9 +65,11 @@ public class ProjectMenu {
         String projectName = ScanInput.scanner.nextLine();
         System.out.print("\n    Entrez la surface de la cuisine (en m²) : ");
         Double kitchenSurface = ScanInput.scanner.nextDouble();
-        ScanInput.scanner.nextLine();
+        BC.clean();
 
         Project project = new Project(0, clientId, projectName, null, null, ProjectStatus.PENDING, kitchenSurface, null);
-        projectService.addProject(project);
+        int projectId = projectService.addProject(project);
+
+        MaterialMenu.addMaterial(projectId);
     }
 }

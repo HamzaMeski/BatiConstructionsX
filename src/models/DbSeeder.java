@@ -50,7 +50,7 @@ public class DbSeeder {
                     "FOREIGN KEY (project_id) REFERENCES projects(id), " +
                     "name VARCHAR(255) NOT NULL, " +
                     "quantity DOUBLE PRECISION NOT NULL, " +
-                    "componentType VARCHAR(100) NOT NULL" +
+                    "componentType VARCHAR(100)" +
                     ")";
 
             String createMaterialsTable = "CREATE TABLE IF NOT EXISTS materials (" +
