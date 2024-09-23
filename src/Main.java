@@ -17,7 +17,7 @@ public class Main {
             System.out.println("╚════════════════════════════════════════╝");
             System.out.print("        >> CHOISIR UNE OPTION: ");
 
-            option = ScanInput.scanner.nextInt();
+            option = ScanInput.scanner.nextInt();   
             ScanInput.scanner.nextLine();
 
             switch(option) {
