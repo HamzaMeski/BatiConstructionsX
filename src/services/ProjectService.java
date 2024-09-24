@@ -1,8 +1,8 @@
 package services;
 
-import models.dao.project.PgProjectDAO;
+import orgg.dao.project.PgProjectDAO;
 import UI.project.ProjectDisplay;
-import models.entities.Project;
+import orgg.entities.Project;
 
 public class ProjectService {
     private PgProjectDAO model;

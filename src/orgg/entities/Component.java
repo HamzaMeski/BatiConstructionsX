@@ -1,4 +1,4 @@
-package models.entities;
+package orgg.entities;
 
 public class Component {
     private int id;

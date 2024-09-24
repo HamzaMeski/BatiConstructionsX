@@ -1,4 +1,4 @@
-package models;
+package orgg;
 
 import java.sql.*;
 
@@ -24,7 +24,7 @@ public class DbSeeder {
 
             String createProjectsTable = "CREATE TABLE IF NOT EXISTS projects (" +
                     "id SERIAL PRIMARY KEY, " +
-                    "client_id INTEGER NOT NULL, " +
+                    "client_id INTEGER, " +
                     "FOREIGN KEY (client_id) REFERENCES clients(id), " +
                     "name VARCHAR(255) NOT NULL, " +
                     "profitMargin DOUBLE PRECISION, " +

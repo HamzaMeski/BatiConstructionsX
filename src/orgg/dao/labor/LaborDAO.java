@@ -1,6 +1,6 @@
-package models.dao.labor;
+package orgg.dao.labor;
 
-import models.entities.Labor;
+import orgg.entities.Labor;
 
 import java.util.List;
 

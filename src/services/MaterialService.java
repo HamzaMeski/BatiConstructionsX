@@ -1,8 +1,8 @@
 package services;
 
-import models.dao.material.PgMaterialDAO;
+import orgg.dao.material.PgMaterialDAO;
 import UI.material.MaterialDisplay;
-import models.entities.Material;
+import orgg.entities.Material;
 
 public class MaterialService {
     private static PgMaterialDAO model;

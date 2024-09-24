@@ -1,6 +1,6 @@
-package models.dao.client;
+package orgg.dao.client;
 
-import models.entities.Client;
+import orgg.entities.Client;
 import java.util.List;
 
 public abstract class ClientDAO {

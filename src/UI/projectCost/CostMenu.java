@@ -4,8 +4,7 @@ import lib.ScanInput;
 import lib.BC;
 import lib.YesNo;
 import services.CostService;
-import models.entities.Project;
-import models.dao.cost.PgCostDAO;
+import orgg.dao.cost.PgCostDAO;
 
 public class CostMenu {
     private static PgCostDAO model = new PgCostDAO();

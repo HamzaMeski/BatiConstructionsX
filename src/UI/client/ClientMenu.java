@@ -1,13 +1,11 @@
 package UI.client;
 
 import lib.ScanInput;
-import UI.client.ClientDisplay;
-import models.dao.client.PgClientDAO;
+import orgg.dao.client.PgClientDAO;
 import services.ClientService;
-import models.entities.Client;
+import orgg.entities.Client;
 
 import java.util.List;
-import java.util.ArrayList;
 
 public class ClientMenu {
     private static PgClientDAO model = new PgClientDAO();

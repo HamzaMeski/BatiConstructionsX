@@ -1,7 +1,7 @@
 package services;
 
-import models.entities.Labor;
-import models.dao.labor.PgLaborDAO;
+import orgg.entities.Labor;
+import orgg.dao.labor.PgLaborDAO;
 import UI.labor.LaborDisplay;
 
 public class LaborService {

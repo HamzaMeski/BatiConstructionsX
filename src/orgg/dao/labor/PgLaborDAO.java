@@ -1,7 +1,7 @@
-package models.dao.labor;
+package orgg.dao.labor;
 
-import models.DbConfig;
-import models.entities.Labor;
+import orgg.DbConfig;
+import orgg.entities.Labor;
 
 import java.sql.*;
 import java.util.ArrayList;

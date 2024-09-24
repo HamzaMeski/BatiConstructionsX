@@ -28,7 +28,7 @@ public class Main {
 
                     break;
                 case 3:
-
+                    ProjectMenu.addProject(null);
                     break;
                 case 4:
                     ClientMenu.addClient();
