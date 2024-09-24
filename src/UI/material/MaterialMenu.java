@@ -4,11 +4,8 @@ import lib.ScanInput;
 import lib.BC;
 import lib.YesNo;
 import services.MaterialService;
-import models.dao.material.PgMaterialDAO;
-import models.entities.Material;
-
-import java.util.List;
-import java.util.ArrayList;
+import orgg.dao.material.PgMaterialDAO;
+import orgg.entities.Material;
 
 public class MaterialMenu {
     private static PgMaterialDAO model = new PgMaterialDAO();

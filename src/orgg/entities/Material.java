@@ -1,4 +1,4 @@
-package models.entities;
+package orgg.entities;
 
 public class Material extends Component {
     private double unitCost;

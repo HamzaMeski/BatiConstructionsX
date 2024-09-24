@@ -1,10 +1,10 @@
-package models.dao.client;
+package orgg.dao.client;
 
-import models.DbConfig;
+import orgg.DbConfig;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import models.entities.Client;
+import orgg.entities.Client;
 
 public class PgClientDAO extends ClientDAO {
     private final DbConfig dbConfig = DbConfig.getInstance();

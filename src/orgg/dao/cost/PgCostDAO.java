@@ -1,6 +1,6 @@
-package models.dao.cost;
+package orgg.dao.cost;
 
-import models.DbConfig;
+import orgg.DbConfig;
 import java.sql.*;
 import java.util.Map;
 import java.util.HashMap;

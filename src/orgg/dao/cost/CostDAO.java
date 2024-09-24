@@ -1,4 +1,4 @@
-package models.dao.cost;
+package orgg.dao.cost;
 
 import java.util.Map;
 

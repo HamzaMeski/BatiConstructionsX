@@ -1,8 +1,8 @@
-package models.dao.project;
+package orgg.dao.project;
 
-import models.entities.Project;
-import models.enums.ProjectStatus;
-import models.DbConfig;
+import orgg.entities.Project;
+import orgg.enums.ProjectStatus;
+import orgg.DbConfig;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,7 +16,9 @@ public class PgProjectDAO extends ProjectDAO {
         int projectId = -1;
         try (Connection connection = dbConfig.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setInt(1, project.getClientId());
+
+            // Use setObject to handle Integer type and null values
+            statement.setObject(1, project.getClientId(), Types.INTEGER);
             statement.setString(2, project.getName());
             statement.setObject(3, project.getProfitMargin());
             statement.setObject(4, project.getTotalCost());
@@ -41,15 +43,19 @@ public class PgProjectDAO extends ProjectDAO {
         try (Connection connection = dbConfig.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(sql)) {
+
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
-                int clientId = resultSet.getInt("client_id");
+
+                // Use getObject to handle nullable client_id values
+                Integer clientId = (Integer) resultSet.getObject("client_id");
                 String name = resultSet.getString("name");
                 Double profitMargin = resultSet.getDouble("profitMargin");
                 Double totalCost = resultSet.getDouble("totalCost");
                 ProjectStatus status = ProjectStatus.valueOf(resultSet.getString("status"));
                 Double surface = resultSet.getDouble("surface");
                 Double vatRate = resultSet.getDouble("vatRate");
+
                 projects.add(new Project(id, clientId, name, profitMargin, totalCost, status, surface, vatRate));
             }
         } catch (SQLException e) {

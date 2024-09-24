@@ -1,10 +1,10 @@
-package models.entities;
+package orgg.entities;
 
-import models.enums.ProjectStatus;
+import orgg.enums.ProjectStatus;
 
 public class Project {
     private int id;
-    private int clientId;
+    private Integer clientId;
     private String name;
     private Double profitMargin;
     private Double totalCost;
@@ -12,7 +12,7 @@ public class Project {
     private Double surface;
     private Double vatRate;
 
-    public Project(int id, int clientId, String name, Double profitMargin, Double totalCost, ProjectStatus status, Double surface, Double vatRate) {
+    public Project(int id, Integer clientId, String name, Double profitMargin, Double totalCost, ProjectStatus status, Double surface, Double vatRate) {
         this.id = id;
         this.clientId = clientId;
         this.name = name;
@@ -31,7 +31,7 @@ public class Project {
         this.id = id;
     }
 
-    public int getClientId() {
+    public Integer getClientId() {
         return clientId;
     }
 

@@ -1,11 +1,10 @@
 package services;
 
-import models.dao.client.PgClientDAO;
+import orgg.dao.client.PgClientDAO;
 import UI.client.ClientDisplay;
-import models.entities.Client;
+import orgg.entities.Client;
 
 import java.util.List;
-import java.util.ArrayList;
 
 public class ClientService {
     private PgClientDAO model;

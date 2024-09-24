@@ -1,4 +1,4 @@
-package models.enums;
+package orgg.enums;
 
 public enum ProjectStatus {
     PENDING,

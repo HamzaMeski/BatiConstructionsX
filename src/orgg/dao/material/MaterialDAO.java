@@ -1,6 +1,6 @@
-package models.dao.material;
+package orgg.dao.material;
 
-import models.entities.Material;
+import orgg.entities.Material;
 
 import java.util.List;
 

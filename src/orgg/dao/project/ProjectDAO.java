@@ -1,6 +1,6 @@
-package models.dao.project;
+package orgg.dao.project;
 
-import models.entities.Project;
+import orgg.entities.Project;
 import java.util.List;
 
 public abstract class ProjectDAO {

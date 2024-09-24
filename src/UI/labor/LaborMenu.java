@@ -1,11 +1,10 @@
 package UI.labor;
 
-import UI.labor.LaborDisplay;
 import lib.BC;
 import lib.ScanInput;
 import lib.YesNo;
-import models.dao.labor.PgLaborDAO;
-import models.entities.Labor;
+import orgg.dao.labor.PgLaborDAO;
+import orgg.entities.Labor;
 import services.LaborService;
 
 

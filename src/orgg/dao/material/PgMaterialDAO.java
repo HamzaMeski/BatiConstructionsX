@@ -1,7 +1,7 @@
-package models.dao.material;
+package orgg.dao.material;
 
-import models.entities.Material;
-import models.DbConfig;
+import orgg.entities.Material;
+import orgg.DbConfig;
 
 import java.sql.*;
 import java.util.ArrayList;

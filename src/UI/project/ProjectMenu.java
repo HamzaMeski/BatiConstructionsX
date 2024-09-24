@@ -4,11 +4,11 @@ import lib.ScanInput;
 import lib.BC;
 import lib.YesNo;
 import UI.client.ClientMenu;
-import models.dao.cost.PgCostDAO;
-import models.dao.project.PgProjectDAO;
+import orgg.dao.cost.PgCostDAO;
+import orgg.dao.project.PgProjectDAO;
 import services.ProjectService;
-import models.entities.Project;
-import models.enums.ProjectStatus;
+import orgg.entities.Project;
+import orgg.enums.ProjectStatus;
 import UI.material.MaterialMenu;
 import UI.labor.LaborMenu;
 import UI.projectCost.CostMenu;
@@ -63,9 +63,9 @@ public class ProjectMenu {
         else return false;
     }
 
-    public static void addProject(int clientId) {
+    public static void addProject(Integer clientId) {
         System.out.println("");
-        if(clientId == 0) System.out.println("--- Infos à propos de Projet ---");
+        if(clientId == null) System.out.println("--- Infos à propos de Projet ---");
         else System.out.println("--- Création d'un Nouveau Projet ---");
         System.out.print("    Entrez le nom du projet : ");
         String projectName = ScanInput.scanner.nextLine();
