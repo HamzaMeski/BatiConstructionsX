@@ -27,5 +27,7 @@ public class ClientService {
         List<Client> client = searchClients(name);
     }
 
-    public void displayClients() {}
+    public List<Client> listAllClients() {
+        return model.listAllClients();
+    }
 }

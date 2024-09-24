@@ -63,4 +63,36 @@ public class PgProjectDAO extends ProjectDAO {
         }
         return projects;
     }
+
+    public List<Project> displayProjectsByClientId(int clientId) {
+        List<Project> projects = new ArrayList<>();
+        String sql = "SELECT * FROM projects WHERE client_id = ?";
+
+        try (Connection connection = dbConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setInt(1, clientId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+
+                    Integer clientIdFromDb = (Integer) resultSet.getObject("client_id");
+                    String name = resultSet.getString("name");
+                    Double profitMargin = resultSet.getDouble("profitMargin");
+                    Double totalCost = resultSet.getDouble("totalCost");
+                    ProjectStatus status = ProjectStatus.valueOf(resultSet.getString("status"));
+                    Double surface = resultSet.getDouble("surface");
+                    Double vatRate = resultSet.getDouble("vatRate");
+
+                    projects.add(new Project(id, clientIdFromDb, name, profitMargin, totalCost, status, surface, vatRate));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return projects;
+    }
+
 }

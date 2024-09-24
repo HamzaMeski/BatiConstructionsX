@@ -4,8 +4,8 @@ import lib.ScanInput;
 import orgg.dao.client.PgClientDAO;
 import services.ClientService;
 import orgg.entities.Client;
-
 import java.util.List;
+import java.util.ArrayList;
 
 public class ClientMenu {
     private static PgClientDAO model = new PgClientDAO();
@@ -72,5 +72,7 @@ public class ClientMenu {
         return 0; // that's mean there is no found client with that ID,
     }
 
-    public static void listAllClients() {}
+    public static List<Client> listAllClients() {
+        return clientService.listAllClients();
+    }
 }

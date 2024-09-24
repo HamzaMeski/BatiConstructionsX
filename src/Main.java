@@ -24,18 +24,23 @@ public class Main {
                 case 1:
                     ProjectMenu.displayMenu();
                     break;
-                case 2:
 
+                case 2:
+                    ProjectMenu.displayProjects();
                     break;
+
                 case 3:
                     ProjectMenu.addProject(null);
                     break;
+
                 case 4:
                     ClientMenu.addClient();
                     break;
+
                 case 5:
                     System.out.println("    ...");
                     break;
+
                 default:
                     System.out.println("    Aucune option pour le chiffre saisie.");
                     break;
