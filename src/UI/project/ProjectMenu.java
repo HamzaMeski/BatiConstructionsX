@@ -1,12 +1,16 @@
 package UI.project;
 
+import UI.client.ClientDisplay;
 import lib.ScanInput;
 import lib.BC;
 import lib.YesNo;
 import UI.client.ClientMenu;
+import orgg.dao.client.PgClientDAO;
 import orgg.dao.cost.PgCostDAO;
 import orgg.dao.project.PgProjectDAO;
+import orgg.dao.project.ProjectDAO;
 import services.ProjectService;
+import UI.project.ProjectDisplay;
 import orgg.entities.Project;
 import orgg.enums.ProjectStatus;
 import UI.material.MaterialMenu;
@@ -14,15 +18,26 @@ import UI.labor.LaborMenu;
 import UI.projectCost.CostMenu;
 import UI.projectCost.CostDisplay;
 import services.CostService;
+import services.ClientService;
+import orgg.entities.Client;
+
+import java.util.List;
+import java.util.ArrayList;
 
 public class ProjectMenu {
     static private PgProjectDAO model = new PgProjectDAO();
     static private ProjectDisplay display = new ProjectDisplay();
     static ProjectService projectService = new ProjectService(model, display);
 
+    static private PgClientDAO clientModel = new PgClientDAO();
+    static private ClientDisplay clientDisplay = new ClientDisplay();
+    static ClientService clientService = new ClientService(clientModel, clientDisplay);
+
     static private PgCostDAO costModel = new PgCostDAO();
     static private CostDisplay costDisplay = new CostDisplay();
     static CostService costService = new CostService(costModel, costDisplay);
+
+    static List<Client> allClients;
 
     public static void displayMenu() {
         int option;
@@ -34,7 +49,7 @@ public class ProjectMenu {
             System.out.println("    3. retour");
             System.out.print("\nChoisissez une option : ");
             option = ScanInput.scanner.nextInt();
-            ScanInput.scanner.nextLine();
+            BC.clean();
 
             int clientId;
             switch(option) {
@@ -95,5 +110,87 @@ public class ProjectMenu {
         Project cost displaying
          */
         costService.DISPLAY_PROJECT_COST(projectId);
+    }
+
+
+
+    /* Displaying all projects */
+    public static void displayProjects() {
+        int option;
+        do {
+            System.out.println("---Affichage des projets existants---");
+            System.out.println("    1. Afficher tous les projet:");
+            System.out.println("    2. Afficher les projets d'un client:");
+            System.out.println("    3. Retour");
+            System.out.print("\n    Choisissez une option : ");
+            option = ScanInput.scanner.nextInt();
+            BC.clean();
+
+            switch(option) {
+                case 1:
+                    displayAllProjects();
+                    break;
+
+                case 2:
+                    displayProjectsByClient();
+                    break;
+
+                case 3:
+                    System.out.println("    ...");
+                    break;
+
+                default:
+                    System.out.println("    Aucune option pour le chiffre saisie.");
+                    break;
+            }
+        }while(option != 3);
+    }
+
+    public static void displayProjectsByClient() {
+        int option;
+        do {
+            System.out.println("    1.Afficher des clients ");
+            System.out.println("    2.Afficher des projets d'un client par son ID ");
+            System.out.print("\n    Saisir votre option: ");
+            option = ScanInput.scanner.nextInt();
+            BC.clean();
+
+            switch(option) {
+                case 1:
+                    displayAllClients();
+                    break;
+
+                case 2:
+                    getProjectsById();
+                    break;
+
+                default:
+                    System.out.println("    Entrée invalide!");
+                    break;
+            }
+        }while(!(option==1) && !(option==2));
+    }
+
+    public static void displayAllClients() {
+        allClients = ClientDisplay.displayAllClients();
+    }
+
+    public static void getProjectsById() {
+        int clientId;
+        boolean idExist;
+        do {
+            System.out.println("    Entrer l'ID de client pour afficher ses projets ");
+            int id = ScanInput.scanner.nextInt();
+            clientId = id;
+            BC.clean();
+            idExist = allClients.stream().anyMatch(c -> c.getId() == id);
+        }while(!idExist);
+
+        List<Project> projects = projectService.displayProjectsByClientId(clientId);
+        ProjectDisplay.displayProjects(projects);
+    }
+
+    public static void displayAllProjects() {
+        projectService.displayAllProjects();
     }
 }
