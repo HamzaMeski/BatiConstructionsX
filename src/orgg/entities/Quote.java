@@ -1,16 +1,16 @@
 package orgg.entities;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Quote {
     private int id;
     private int projectId;
     private double estimatedAmount;
-    private Date issueDate;
-    private Date validityDate;
+    private LocalDate issueDate;
+    private LocalDate validityDate;
     private boolean accepted;
 
-    public Quote(int id, int projectId, double estimatedAmount, Date issueDate, Date validityDate, boolean accepted) {
+    public Quote(int id, int projectId, double estimatedAmount, LocalDate issueDate, LocalDate validityDate, boolean accepted) {
         this.id = id;
         this.projectId = projectId;
         this.estimatedAmount = estimatedAmount;
@@ -43,19 +43,19 @@ public class Quote {
         this.estimatedAmount = estimatedAmount;
     }
 
-    public Date getIssueDate() {
+    public LocalDate getIssueDate() {
         return issueDate;
     }
 
-    public void setIssueDate(Date issueDate) {
+    public void setIssueDate(LocalDate issueDate) {
         this.issueDate = issueDate;
     }
 
-    public Date getValidityDate() {
+    public LocalDate getValidityDate() {
         return validityDate;
     }
 
-    public void setValidityDate(Date validityDate) {
+    public void setValidityDate(LocalDate validityDate) {
         this.validityDate = validityDate;
     }
 

@@ -20,6 +20,8 @@ import UI.projectCost.CostDisplay;
 import services.CostService;
 import services.ClientService;
 import orgg.entities.Client;
+import orgg.dao.quote.PgQuoteDAO;
+import UI.quote.QuoteMenu;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -109,17 +111,20 @@ public class ProjectMenu {
         /*
         Project cost displaying
          */
-        costService.DISPLAY_PROJECT_COST(projectId);
+        double totalCost = costService.DISPLAY_PROJECT_COST(projectId);
+
+        /*
+        Quote management
+         */
+        QuoteMenu.addQuote(totalCost, projectId);
     }
-
-
 
     /* Displaying all projects */
     public static void displayProjects() {
         int option;
         do {
             System.out.println("---Affichage des projets existants---");
-            System.out.println("    1. Afficher tous les projet:");
+            System.out.println("    1. Afficher tous les projets:");
             System.out.println("    2. Afficher les projets d'un client:");
             System.out.println("    3. Retour");
             System.out.print("\n    Choisissez une option : ");
