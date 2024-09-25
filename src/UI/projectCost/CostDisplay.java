@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class CostDisplay {
 
-    public static void displayProjectCost(Map<String, Object> projectInfo) {
+    public static double displayProjectCost(Map<String, Object> projectInfo) {
         System.out.println("--- Détail des Coûts ---");
 
         /*
@@ -79,5 +79,7 @@ public class CostDisplay {
 
         Double finalTotalCost = totalCostBeforeMargin + profit;
         System.out.println("5. Coût total: " + String.format("%.2f", finalTotalCost) + " €");
+
+        return finalTotalCost;
     }
 }

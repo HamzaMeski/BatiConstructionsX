@@ -18,8 +18,8 @@ public class CostService {
         model.APPLY_VTA_AND_PROFIT(vta, profit, projectId);
     }
 
-    public void DISPLAY_PROJECT_COST(int projectId) {
+    public double DISPLAY_PROJECT_COST(int projectId) {
         Map<String, Object> projectInfo = model.DISPLAY_PROJECT_INFO(projectId);
-        CostDisplay.displayProjectCost(projectInfo);
+        return  CostDisplay.displayProjectCost(projectInfo);
     }
 }
